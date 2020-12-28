@@ -4,7 +4,7 @@ const Result = (props) => {
     console.log(props.result)
   return (
     <div className="result">
-        <img src={props.result.Poster}/>
+        <img src={props.result.Poster} alt=""/>
         <h3>{props.result.Title} ({props.result.Year})</h3>
     </div>
   );
