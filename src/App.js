@@ -9,14 +9,11 @@ function App() {
     results: [],
   });
 
-  const apiUrl = "http://www.omdbapi.com/?i=tt3896198&apikey=6921bea8";
-  const config = {
-    headers: { "Access-Control-Allow-Origin": "*" },
-  };
+  const apiUrl = "https://www.omdbapi.com/?i=tt3896198&apikey=6921bea8";
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(`${apiUrl}&s=${state.s}`, config)
+      axios(`${apiUrl}&s=${state.s}`)
         .then(({ data }) => {
           let result = data.Search;
           setState((prevState) => {
