@@ -1,7 +1,6 @@
 import React from "react";
 
 const Result = (props) => {
-    console.log(props.result)
   return (
     <div className="result">
         <img src={props.result.Poster} alt="No preview available"/>
