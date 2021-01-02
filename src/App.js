@@ -1,24 +1,29 @@
 import Search from "./components/Search";
-import Results from "./components/Results"
+import Results from "./components/Results";
 import { useState } from "react";
 import axios from "axios";
 
 function App() {
   const [state, setState] = useState({
     s: "",
-    results: []
+    results: [],
   });
 
   const apiUrl = "http://www.omdbapi.com/?i=tt3896198&apikey=6921bea8";
+  const config = {
+    headers: { "Access-Control-Allow-Origin": "*" },
+  };
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(`${apiUrl}&s=${state.s}`).then(({ data })=> {
-        let result = data.Search;
-        setState(prevState => {
-          return {...prevState , results:result}
+      axios(`${apiUrl}&s=${state.s}`, config)
+        .then(({ data }) => {
+          let result = data.Search;
+          setState((prevState) => {
+            return { ...prevState, results: result };
+          });
         })
-      }).catch(e=>console.log(e));
+        .catch((e) => console.log(e));
     }
   };
 
