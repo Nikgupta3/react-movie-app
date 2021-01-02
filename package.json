@@ -13,6 +13,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "postinstall": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
